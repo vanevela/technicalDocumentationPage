@@ -566,7 +566,7 @@
               <p></p>
               <div class="code-block">
                 <code>
-                  let myVariable = 'Bob'; <br />
+                  let myVariable = 'Bob'; <br>
                   myVariable = 'Steve';
                 </code>
               </div>
@@ -919,14 +919,63 @@
                   multiply(20, 20);
                   multiply(0.5, 3);
               </code>
-              
+              <div class="block-note">
+                  <div class="content-block">
+                    <h4 class="block-title">
+                      <span class="icon-holder">
+                        <i class="fas fa-info-circle"></i>
+                      </span>
+                      Note:
+                    </h4>
+                    <p>
+                        The <code>return</code> statement tells the browser to return the 
+                        <code>result</code> variable out of the function so it is available to use. 
+                        This is necessary because variables defined inside functions 
+                        are only available inside those functions. This is called variable 
+                        scoping. (Read <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variable_scope">
+                        more on variable scoping</a>.) 
+                    </p>
+                  </div>
+                  <!--end content block-->
+                </div>
+                <!--end block note-->
             </section>
             <!--end subsection Functions-->
             <section id="events" class="sub-section">
               <h2 class="sect-heading">
                 Events
               </h2>
-              <p></p>
+              <p>
+                  Real interactivity on a website needs events. 
+                  These are code structures which listen for things happening 
+                  in the browser and runs code in response. The most obvious example 
+                  is the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event">click event</a>, 
+                  which is fired by the browser when you click 
+                  on something with your mouse. To demonstrate this, enter the 
+                  following into your console, then click on the current webpage: 
+              </p>
+              <code class="code-block">
+                  document.querySelector('html').onclick = function() {
+                    alert('Ouch! Stop poking me!');
+                  }
+              </code>
+              <p>
+                  There are many ways to attach an event to an element. Here we select the 
+                  <code><</code><code>html></code> element, setting its <code>onclick</code> handler property equal to an anonymous 
+                  (i.e. nameless) function, which contains the code we want the click event to run.
+              </p>
+              <p>
+                  Note that
+              </p>
+              <code class="code-blo">
+                  document.querySelector('html').onclick = function() {};
+              </code>
+              <p>is equivalent to</p>
+              <code class="code-block">
+                  let myHTML = document.querySelector('html');<br>
+                  myHTML.onclick = function() {};
+              </code>
+              <p>It's just shorter.</p>
             </section>
             <!--end subsection Events-->
           </section>
@@ -935,28 +984,174 @@
               <h1 class="sect-heading">Supercharging our example webside</h1>
             </header>
             <div class="intro-mainsect">
-              <p></p>
+              <p>
+                  Now we've gone over a few JavaScript basics, let's add a few cool 
+                  features to our example site to see what is possible.
+              </p>
             </div>
             <!--end intro section-->
             <section id="adding_image_changer" class="sub-section">
               <h2 class="sect-heading">
                 Adding an image changer
               </h2>
-              <p></p>
+              <p>
+                  In this section, we'll add an additional image to our site using some more 
+                  DOM API features, 
+                  using some JavaScript to switch between the two when the image is clicked.
+              </p>
+              <ol>
+                <li>
+                    First of all, find another image you'd like to feature on your site. 
+                    Be sure it is the same size as the first image, or as close as possible.
+                </li>
+                <li>Save this image in your <code>images</code> folder.</li>
+                <li>Rename this image 'firefox2.png' (without quotes).</li>
+                <li>
+                  Go to your <code>main.js</code> file, and enter the following JavaScript. 
+                  (If your "Hello world!" JavaScript is still there, delete it.)
+                </li>
+              <code class="code-block">
+                let myImage = document.querySelector('img'); <br>
+                myImage.onclick = function() { <br>
+                <pre>    let mySrc = myImage.getAttribute('src');</pre>
+                <pre>    if(mySrc === 'images/firefox-icon.png') {</pre>
+                <pre>       myImage.setAttribute ('src','images/firefox2.png');</pre>
+                <pre>    } else {</pre>
+                <pre>      myImage.setAttribute ('src','images/firefox-icon.png');</pre>
+                <pre>    }</pre>
+              </code>
+              <li>
+                Save all files and load <code>index.html</code> in the browser. 
+                Now when you click the image, it should change to the 
+                other one!
+              </li>
+            </ol> 
+            <p>
+              You store a reference to your <code><</code><code>img></code> element in the myImage variable. 
+              Next, you make this variable's onclick event handler property equal to a function with no 
+              name (an "anonymous" function). Now, every time this element is clicked:
+            </p>
+            <ol>
+              <li>You retrieve the value of the image's <code>src</code> attribute.</li>
+              <li>You use a conditional to check whether the <code>src</code> value is equal to the path to the original image:</li>
+              <ol>
+                <li>If it is, you change the src value to the path to the 2nd image, forcing the other image to be loaded inside the <code><</code><code>img></code> element.</li>
+                <li>If it isn't (meaning it must already have changed), the <code>src</code> value swaps back to the original image path, to the original state.</li>
+              </ol>
+            </ol>
             </section>
             <!--end subsection Adding image changer-->
             <section id="adding_personalized_message" class="sub-section">
               <h2 class="sect-heading">
                 Adding a personalized welcome message
               </h2>
-              <p></p>
+              <p>
+                  Next we will add another bit of code, changing the page's title to a personalized 
+                  welcome message when the user first navigates to the site. This welcome 
+                  message will persist, should the user leave the site and later return — we will save it using the 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage API</a>. We will also include an option to change the user and, therefore, 
+                the welcome message anytime it is required.
+              </p>
+              <ol>
+              <li>
+                  In index.html, add the following line just before the <code><</code><code>script></code>  element:
+              </li>
+              <code class="code-block">
+                 <code><</code>button>Change user<code><</code>/button>
+              </code>
+              <li>
+                  In <code>main.js</code>, place the following code at the bottom of the file, 
+                  exactly as written — this takes references to the new button and the heading, 
+                  storing them inside variables:
+              </li>
+              <code class="code-block">
+                  let myButton = document.querySelector('button');<br>
+                  let myHeading = document.querySelector('h1');
+              </code>
+              <li>
+                  Now add the following function to set the personalized greeting — this won't do anything yet,
+                  but we'll fix this in a moment: <br>
+                  <code class="code-block">
+                      function setUserName() {
+                      <pre>   let myName = prompt('Please enter your name.');</pre>
+                      <pre>   localStorage.setItem('name', myName);</pre>
+                      <pre>   myHeading.textContent = 'Mozilla is cool, ' + myName;</pre>
+                      } <br>
+                  </code>
+                  This function contains a <code>prompt()</code> function, which brings up a dialog box, a 
+                  bit like <code>alert()</code>. This <code>prompt()</code>, however, asks the user to enter some data, 
+                  storing it in a variable after the user presses <code><strong>OK</strong></code> . In this case, we are asking 
+                  the user to enter their name. Next, we call on an API called <code>localStorage</code>, 
+                  which allows us to store data in the browser and later retrieve it. We use localStorage's 
+                  <code>setItem()</code> function to create and store a data item called <code>'name'</code>, setting its value to the 
+                  <code>myName</code> variable which contains the data the user entered. Finally, we set the <code>textContent</code> of the 
+                  heading to a string, plus the user's newly stored name.
+              </li>
+              
+              <li>
+                  Next, add this <code>if ... else</code> block — we could call this the initialization 
+                  code, as it structures the app when it first loads: <br>
+                  <code class="code-block">
+                      if(!localStorage.getItem('name')) {
+                      <pre>  setUserName();</pre>
+                      <pre>} else {</pre>
+                      <pre>  let storedName = localStorage.getItem('name');</pre>
+                      <pre>  myHeading.textContent = 'Mozilla is cool, ' + storedName;</pre>
+                      }
+                  </code><br>
+                  This block first uses the negation operator (logical NOT, represented by the !) 
+                  to check whether the <code>name</code> data exists. If not, the <code>setUserName()</code> function is run to create it. 
+                  If it exists (that is, the user set it during a previous visit), we retrieve the stored name using <code>getItem()</code> 
+                  and set the <code>textContent</code> of the heading to a string, plus the user's name, 
+                  as we did inside <code>setUserName()</code>.
+              </li>
+              <li>
+                  Finally, put the below <code>onclick</code> event handler on the button. 
+                  When clicked, the <code>setUserName()</code> function is run. This allows 
+                  the user to set a new name, when they wish, by pressing the button: <br>
+                  <code class="code-block">
+                      myButton.onclick = function() {
+                      <pre>    setUserName();</pre>
+                      }
+                  </code>
+              </li>
+            </ol>
+            <p>
+                Now when you first visit the site, it will ask you for your username, then give you a 
+                personalized message. You can change the name any time you like by pressing 
+                the button. As an added bonus, because the name is stored inside 
+                <code>localStorage</code>, it persists after the site is closed down, keeping the personalized 
+                message there when you next open the site!
+            </p>
             </section>
             <!--end subsection Addin a personalized welcome message-->
             <section id="A_user_name_of_null" class="sub-section">
               <h2 class="sect-heading">
                 A user name of null?
               </h2>
-              <p></p>
+              <p>
+                When you run the example and get the dialog box that prompts you to enter your 
+                user name, try pressing the Cancel button. You should end up with a title that 
+                reads "Mozilla is cool, null". This is because when you cancel the prompt, the 
+                value is set as <code>null</code>, a special value in JavaScript that basically refers to the 
+                absence of a value.
+              </p>
+              <p>
+                  Also try just pressing OK without entering any name — you should end up with a title that 
+                  reads "Mozilla is cool,", for fairly obvious reasons.
+              </p>
+              <p>
+                  If you wanted to avoid these problems, you could check that the user hasn't entered 
+                  <code>null</code> or a blank name by updating you <code>setUserName()</code> function to this:
+              </p>
+              <code class="code-block">
+
+              </code>
+              <p>
+                  In human language — if <code>myName</code> has no value, or its value is <code>null</code>, 
+                  run <code>setUserName()</code> again from the start. If it does have a value (if the above 
+                  statements are not true), then store the value in <code>localStorage</code> and set it as the heading's text.
+              </p>
             </section>
             <!--end subsection A user name of null-->
           </section>
@@ -966,7 +1161,19 @@
               <h1 class="sect-heading">Conclusion</h1>
             </header>
             <div class="intro-mainsect">
-              <p></p>
+              <p>
+                  If you have followed all the instructions in this article, you should end up with a 
+                  page that looks something like this (you can also <a href="https://mdn.github.io/beginner-html-site-scripted/">view our version here</a> ):
+              </p>
+              <img alt="screenshot page" src="https://mdn.mozillademos.org/files/9539/website-screen-scripted.png" style="display: block; height: 995px; margin: 0px auto; width: 800px;">
+              <p>
+                  If you get stuck, you can compare 
+                  your work with our <a href="https://github.com/mdn/beginner-html-site-scripted/blob/gh-pages/scripts/main.js">finished example code on GitHub</a>.
+              </p>
+              <p>
+                  We have barely scratched the surface of JavaScript. If you have enjoyed playing, and wish to advance even further, 
+                  head to our <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">JavaScript learning topic</a>.
+              </p>
             </div>
             <!--end intro section-->
           </section>
@@ -976,7 +1183,9 @@
               <h1 class="sect-heading">Reference</h1>
             </header>
             <div class="intro-mainsect">
-              <p></p>
+              <p>
+                This documentation was taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">MDM</a> 
+              </p>
             </div>
             <!--end intro section-->
           </section>
