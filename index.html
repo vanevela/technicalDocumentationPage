@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/c6fe0a9ec1.js"
       crossorigin="anonymous"
@@ -11,40 +12,27 @@
     <title>Technical Documentation</title>
   </head>
   <body>
-    <header class="fixed-top">
-      <div class="branding">
-        <div class="container-f">
-          <div class="logo-wrapper"></div>
-          <button class="burger-toggler" type="button">
-            <!--hide in full screen-->
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+    <header class="fixed-top">    
+        <div class="logo-wrapper">
+              <button class="burger-toggler" type="button">
+                  <!--hide in full screen-->
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+                <!--end button burger-->
           <div class="logo">
             <a href="#" class="nav-logo">
               <i class="fab fa-hubspot"></i>
               <span class="logo-text">
-                JS
-                <span class="logo-text2">Code</span>
-              </span>
+               <strong>JS</strong>
+              <span class="logo-text2">Code</span>
+            </span>
             </a>
           </div>
-          <!--end logo wrapper-->
-          <div class="utilities-wraper">
-            <div class="search-box">
-              <form action="" class="search-form">
-                <input
-                  type="text"
-                  class="search-input"
-                  name="search"
-                  placeholder="Search"
-                />
-                <button type="submit" class="search-button" value="search">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
-            </div>
+          <!--end logo-->
+        </div>
+          <!--end logo wrapper -->
             <ul class="social-media">
               <li class="media-iten">
                 <a href="#">
@@ -63,31 +51,10 @@
               </li>
             </ul>
             <!--end social-media-->
-          </div>
-          <!--end utilities wraper-->
-        </div>
-        <!--end container-->
-      </div>
-      <!--end branding-->
+       
     </header>
     <!--end header fixed-top-->
-    <div class="big-wrapper">
-      <div class="sidebar">
-        <div class="search-box box-toggle">
-          <!--?hide in full screen-->
-          <form action="" class="search-form">
-            <input
-              type="text"
-              class="search-input"
-              name="search"
-              placeholder="Search"
-            />
-            <button type="submit" class="search-button" value="search">
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
-        </div>
-        <!--end search box toggle-->
+    <div class="big-wrapper">    
         <nav id="navbar">
           <header class="sidebar-des">
             <h1>JavaScript basics</h1>
@@ -108,47 +75,47 @@
                 A "Hello world!" example
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item item">
               <a href="#" class="nav-link"
                 ><!--?scrollto active-->
                 <!--?::before-->
                 What happened?
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item title-item">
               <a href="#" class="nav-link">
                 <i class="far fa-file-code"></i>
                 Language basics crash course
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item item">
+              <a href="#variables" class="nav-link">
                 <!--?::before-->
                 Variables
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item item">
+              <a href="#comments" class="nav-link">
                 Comments
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item item">
+              <a href="#operators" class="nav-link">
                 Operators
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item item">
+              <a href="#conditionals" class="nav-link">
                 Conditionals
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item item">
+              <a href="#functions" class="nav-link">
                 Functions
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item item">
+              <a href="#events" class="nav-link">
                 Events
               </a>
             </li>
@@ -158,39 +125,37 @@
                 Supercharging our example website
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item item">
               <a href="#" class="nav-link">
                 Adding an image changer
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item item">
               <a href="#" class="nav-link">
-                Adding a personalized welcome message
+              Adding a personalized welcome message
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item item">
               <a href="#" class="nav-link">
                 A user name of null?
               </a>
             </li>
             <li class="nav-item title-item">
-              <a href="#" class="nav-link">
+              <a href="#conclusion" class="nav-link">
                 <i class="fas fa-highlighter"></i>
                 Conclusion
               </a>
             </li>
             <li class="nav-item title-item">
-              <a href="#" class="nav-link">
+              <a href="#reference" class="nav-link">
                 <i class="fas fa-arrow-down"></i>
                 Reference
               </a>
             </li>
           </ul>
         </nav>
-      </div>
-      <!--end side bar-->
-      <div class="doc-content">
-        <main id="main-doc container-doc">
+      <!--end side nav-bar-->
+        <main id="main-doc" class="container-doc">
           <section id="What_is_JavaScript" class="main-section">
             <header class="intro-head">
               <h1 class="sect-heading">What is JavaScript, really?</h1>
@@ -1191,9 +1156,7 @@
           </section>
           <!--end section reference-->
         </main>
-        <!--end main doc container doc-->
-      </div>
-      <!--doc content end-->
+      <!--end main doc container doc-->
     </div>
     <!--end big wrapper-->
   </body>
