@@ -14,13 +14,6 @@
   <body>
     <header class="fixed-top">    
         <div class="logo-wrapper">
-              <button class="burger-toggler" type="button">
-                  <!--hide in full screen-->
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </button>
-                <!--end button burger-->
           <div class="logo">
             <a href="#" class="nav-logo">
               <i class="fab fa-hubspot"></i>
@@ -55,7 +48,7 @@
     </header>
     <!--end header fixed-top-->
     <div class="big-wrapper">    
-        <nav id="navbar">
+        <nav id="navbar" class="sidebar">
           <header class="sidebar-des">
             <h1>JavaScript basics</h1>
           </header>
@@ -71,7 +64,7 @@
             <li class="nav-item title-item">
               <a href="#" class="nav-link"
                 ><!--?scrollto active-->
-                <i class="far fa-hand-spock"></i>
+                <i class="fas fa-hand-spock"></i>
                 A "Hello world!" example
               </a>
             </li>
@@ -84,7 +77,7 @@
             </li>
             <li class="nav-item title-item">
               <a href="#" class="nav-link">
-                <i class="far fa-file-code"></i>
+                <i class="fas fa-file-code"></i>
                 Language basics crash course
               </a>
             </li>
@@ -239,7 +232,7 @@
                   >the standard in basic programming examples</a
                 >)
               </p>
-              <div class="block-importan">
+              <div class="block block-importan">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -283,8 +276,8 @@
                   Now add the following code to the <code>main.js</code> file:
                   <div class="code-block">
                     <code>
-                      const myHeading = document.querySelector('h1');<br />
-                      myHeading.textContent = 'Hello world!';
+                      <pre>const myHeading = document.querySelector('h1');</pre>
+                      <pre>myHeading.textContent = 'Hello world!';</pre>
                     </code>
                   </div>
                 </li>
@@ -295,11 +288,11 @@
                   <img
                     alt=""
                     src="https://mdn.mozillademos.org/files/9543/hello-world.png"
-                    style="display: block; height: 236px; margin: 0px auto; width: 806px;"
+                    style="display: block; height: 236px; margin: 15px auto; width: 806px;"
                   />
                 </li>
               </ol>
-              <div class="block-note">
+              <div class="block block-note">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -342,7 +335,7 @@
                 <code>textContent</code> property (which represents the content
                 of the heading) to "Hello world!".
               </p>
-              <div class="block-note">
+              <div class=" block block-note">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -378,7 +371,7 @@
                 you're well on your way to being able to program just about
                 anything!
               </p>
-              <div class="block-importan">
+              <div class="block block-importan">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -418,7 +411,7 @@
                   let myVariable;
                 </code>
               </div>
-              <div class="block-note">
+              <div class=" block block-note">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -443,7 +436,7 @@
                 <!--end content block-->
               </div>
               <!--end block note-->
-              <div class="block-note">
+              <div class=" block block-note">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -468,7 +461,7 @@
                 <!--end content block-->
               </div>
               <!--end block note-->
-              <div class="block-note">
+              <div class=" block block-note">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -485,7 +478,7 @@
                 <!--end content block-->
               </div>
               <!--end block note-->
-              <div class="block-note">
+              <div class="block block-note">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -530,10 +523,7 @@
               </div>
               <p></p>
               <div class="code-block">
-                <code>
-                  let myVariable = 'Bob'; <br>
-                  myVariable = 'Steve';
-                </code>
+                <code> let myVariable = 'Bob';<br>myVariable = 'Steve'; </code>
               </div>
               <p>
                 Note that variables may hold values that have different
@@ -613,7 +603,7 @@
                       <th>
                         <code>
                           let myVariable = document.querySelector('h1');
-                        </code>
+                        </code> <br>
                         All of the above examples too.
                       </th>
                     </tr>
@@ -639,16 +629,20 @@
                 added in-between code which is ignored by the browser. You can
                 put comments into JavaScript code, just as you can in CSS:
               </p>
+              <div class="code-block">
               <code>
                 /* Everything in between is a comment. */
               </code>
+            </div>
               <p>
                 If your comment contains no line breaks, it's often easier to
                 put it behind two slashes like this:
               </p>
+              <div class="code-block">
               <code>
                 // This is a comment
               </code>
+            </div>
             </section>
             <!--end subsection Comments-->
             <section id="operators" class="sub-section">
@@ -752,7 +746,7 @@
                             but the comparison returns <code>false</code> because we negate it:
                         </p>
                         <code>
-                            let myVariable = 3;
+                            let myVariable = 3; <br>
                             !(myVariable === 3);
                         </code>
                         <p>
@@ -761,7 +755,7 @@
                             This returns <code>false</code> because <code>myVariable</code> IS equal to 3:
                         </p>
                         <code>
-                            let myVariable = 3;
+                          let myVariable = 3;
                             myVariable !== 3;
                         </code>
                       </th>
@@ -779,7 +773,7 @@
                 >
                 for a complete list.
               </p>
-              <div class="block-note">
+              <div class=" block block-note">
                 <div class="content-block">
                   <h4 class="block-title">
                     <span class="icon-holder">
@@ -814,14 +808,16 @@
                 revealed by its result. A very common form of conditionals is 
                 the <code>if ... else</code> statement. For example:
               </p>
-              <code class="code-block">
-                  let iceCream = 'chocolate';
-                  if(iceCream === 'chocolate') {
-                    alert('Yay, I love chocolate ice cream!');    
-                  } else {
-                    alert('Awwww, but chocolate is my favorite...');    
+              <div class="code-block">
+              <code>
+                  let iceCream = 'chocolate'; <br>
+                  if(iceCream === 'chocolate') { <br>
+                    &nbsp alert('Yay, I love chocolate ice  cream!');    <br>
+                  } else { <br>
+                    &nbsp alert('Awwww, but chocolate is my favorite...'); <br>   
                   }
               </code>
+            </div>
               <p>
                 The expression inside the <code>if( ... )</code> is the test — this uses 
                 the identity operator (as described above) to compare the 
@@ -843,12 +839,16 @@
                   name, instead of rewriting the entire code each time. 
                   You have already seen some uses of functions above, for example:
               </p>
-              <code class="code-block">
+              <div class="code-block">
+              <code>
                   let myVariable = document.querySelector('h1');
               </code>
-              <code class="code-block">
+            </div>
+            <div class="code-block">
+              <code>
                   alert('hello!');
               </code>
+            </div>
               <p>
                   These functions, <code>document.querySelector</code> and <code>alert</code>, 
                   are built into the browser for you to use whenever you desire.
@@ -869,22 +869,26 @@
                   The good news is you can define your own functions — in this next example we write a simple 
                   function which takes two numbers as arguments and multiplies them:
               </p>
-              <code class="code-block">
-                  function multiply(num1,num2) {
-                    let result = num1 * num2;
-                    return result;
+              <div class="code-block">
+              <code>
+                  function multiply(num1,num2) { <br>
+                   &nbsp; let result = num1 * num2;<br>
+                   &nbsp; return result; <br>
                   }
               </code>
+            </div>
               <p>
                 Try running the above function in the console, 
                 then test with several arguments. For example:
               </p>
-              <code class="code-block">
-                  multiply(4, 7);
-                  multiply(20, 20);
-                  multiply(0.5, 3);
+              <div class="code-block">
+              <code>
+                  multiply(4, 7); <br>
+                  multiply(20, 20); <br>
+                  multiply(0.5, 3); <br>
               </code>
-              <div class="block-note">
+            </div>
+              <div class="block block-note">
                   <div class="content-block">
                     <h4 class="block-title">
                       <span class="icon-holder">
@@ -919,11 +923,14 @@
                   on something with your mouse. To demonstrate this, enter the 
                   following into your console, then click on the current webpage: 
               </p>
-              <code class="code-block">
-                  document.querySelector('html').onclick = function() {
-                    alert('Ouch! Stop poking me!');
+              <div class="code-block">
+              <code>
+                  document.querySelector('html').onclick = function() {<br>
+                   &nbsp; alert('Ouch! Stop poking me!'); <br>
                   }
+  
               </code>
+            </div>
               <p>
                   There are many ways to attach an event to an element. Here we select the 
                   <code><</code><code>html></code> element, setting its <code>onclick</code> handler property equal to an anonymous 
@@ -932,14 +939,18 @@
               <p>
                   Note that
               </p>
-              <code class="code-blo">
+              <div class="code-block">
+              <code>
                   document.querySelector('html').onclick = function() {};
               </code>
+            </div>
               <p>is equivalent to</p>
-              <code class="code-block">
+              <div class="code-block">
+              <code>
                   let myHTML = document.querySelector('html');<br>
                   myHTML.onclick = function() {};
               </code>
+            </div>
               <p>It's just shorter.</p>
             </section>
             <!--end subsection Events-->
@@ -975,7 +986,8 @@
                   Go to your <code>main.js</code> file, and enter the following JavaScript. 
                   (If your "Hello world!" JavaScript is still there, delete it.)
                 </li>
-              <code class="code-block">
+                <div class="code-block">
+              <code>
                 let myImage = document.querySelector('img'); <br>
                 myImage.onclick = function() { <br>
                 <pre>    let mySrc = myImage.getAttribute('src');</pre>
@@ -985,6 +997,7 @@
                 <pre>      myImage.setAttribute ('src','images/firefox-icon.png');</pre>
                 <pre>    }</pre>
               </code>
+            </div>
               <li>
                 Save all files and load <code>index.html</code> in the browser. 
                 Now when you click the image, it should change to the 
@@ -1021,28 +1034,34 @@
               <li>
                   In index.html, add the following line just before the <code><</code><code>script></code>  element:
               </li>
-              <code class="code-block">
+              <div class="code-block">
+              <code>
                  <code><</code>button>Change user<code><</code>/button>
               </code>
+            </div>
               <li>
                   In <code>main.js</code>, place the following code at the bottom of the file, 
                   exactly as written — this takes references to the new button and the heading, 
                   storing them inside variables:
               </li>
-              <code class="code-block">
+              <div class="code-block">
+              <code>
                   let myButton = document.querySelector('button');<br>
                   let myHeading = document.querySelector('h1');
               </code>
+            </div>
               <li>
                   Now add the following function to set the personalized greeting — this won't do anything yet,
                   but we'll fix this in a moment: <br>
-                  <code class="code-block">
+                  <div class="code-block">
+                  <code>
                       function setUserName() {
                       <pre>   let myName = prompt('Please enter your name.');</pre>
                       <pre>   localStorage.setItem('name', myName);</pre>
                       <pre>   myHeading.textContent = 'Mozilla is cool, ' + myName;</pre>
                       } <br>
                   </code>
+                </div>
                   This function contains a <code>prompt()</code> function, which brings up a dialog box, a 
                   bit like <code>alert()</code>. This <code>prompt()</code>, however, asks the user to enter some data, 
                   storing it in a variable after the user presses <code><strong>OK</strong></code> . In this case, we are asking 
@@ -1056,7 +1075,8 @@
               <li>
                   Next, add this <code>if ... else</code> block — we could call this the initialization 
                   code, as it structures the app when it first loads: <br>
-                  <code class="code-block">
+                  <div class="code-block">
+                  <code>
                       if(!localStorage.getItem('name')) {
                       <pre>  setUserName();</pre>
                       <pre>} else {</pre>
@@ -1064,6 +1084,7 @@
                       <pre>  myHeading.textContent = 'Mozilla is cool, ' + storedName;</pre>
                       }
                   </code><br>
+                </div>
                   This block first uses the negation operator (logical NOT, represented by the !) 
                   to check whether the <code>name</code> data exists. If not, the <code>setUserName()</code> function is run to create it. 
                   If it exists (that is, the user set it during a previous visit), we retrieve the stored name using <code>getItem()</code> 
@@ -1074,11 +1095,13 @@
                   Finally, put the below <code>onclick</code> event handler on the button. 
                   When clicked, the <code>setUserName()</code> function is run. This allows 
                   the user to set a new name, when they wish, by pressing the button: <br>
-                  <code class="code-block">
+                  <div class="code-block">
+                  <code>
                       myButton.onclick = function() {
                       <pre>    setUserName();</pre>
                       }
                   </code>
+                </div>
               </li>
             </ol>
             <p>
@@ -1109,9 +1132,19 @@
                   If you wanted to avoid these problems, you could check that the user hasn't entered 
                   <code>null</code> or a blank name by updating you <code>setUserName()</code> function to this:
               </p>
-              <code class="code-block">
-
+              <div class="code-block">
+              <code>
+                  function setUserName() {<br>
+                   &nbsp; let myName = prompt('Please enter your name.');<br>
+                    &nbsp; if(!myName || myName === null) {<br>
+                      &nbsp; &nbsp;setUserName(); <br>
+                    &nbsp;} else { <br>
+                      &nbsp; &nbsp;localStorage.setItem('name', myName); <br>
+                      &nbsp; &nbsp;myHeading.innerHTML = 'Mozilla is cool, ' + myName; <br>
+                      &nbsp;} <br>
+                  } <br>
               </code>
+            </div>
               <p>
                   In human language — if <code>myName</code> has no value, or its value is <code>null</code>, 
                   run <code>setUserName()</code> again from the start. If it does have a value (if the above 
