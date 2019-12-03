@@ -140,11 +140,12 @@ body {
 #main-doc {
   margin-left: 350px;
   padding: 10px;
+  width: 100%;
 }
 #main-doc img {
-  height: auto !important;
+  width: 100%;
 }
-main h1 {
+main .intro-head {
   font-size: 2.5rem;
   color: #252930;
   font-weight: 600;
@@ -170,6 +171,7 @@ main li {
 }
 
 .block.block-importan {
+  width: 100%;
   border-color: #d26d69;
   background: #fbf3f2;
 }
@@ -214,13 +216,55 @@ br {
   background: #f4fcf6;
 }
 
+/*Tables*/
+.table-responsive {
+  margin-top: 1.5rem !important;
+  width: 100%;
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 2px;
+}
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #252930;
+  border: 2px solid #e7e9ed;
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border: 2px solid #e7e9ed;
+}
+.table-title h5 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+th,
+td {
+  border: 2px solid #e7e9ed;
+  font-size: 0.875rem;
+}
+th h5 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.color-table {
+  background: #f4fcf6;
+}
+
 /*Media query*/
 
-@media only screen and (max-width: 815px) {
-  /* For mobile phones: */
+@media screen and (max-width: 815px) {
   #navbar ul {
-    border: 1px solid;
-    height: 207px;
+    border: 1px solid rgb(224, 222, 222);
+    height: 260px;
   }
 
   #navbar {
@@ -230,10 +274,10 @@ br {
     padding: 0;
     margin: 0;
     width: 100%;
-    max-height: 275px;
+    max-height: 320px;
     z-index: 1;
   }
-  .big-wrapper h1 {
+  .big-wrapper .intro-head {
     font-size: 1.5rem;
   }
   .big-wrapper h2 {
@@ -250,17 +294,23 @@ br {
     margin-top: 270px;
   }
 }
-@media only screen and (max-width: 400px) {
+th h5 {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+th {
+  font-size: 0.75;
+}
+@media screen and (max-width: 400px) {
   #main-doc {
-    margin-left: -10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-right: 10px;
   }
 
   code {
-    margin-left: -20px;
     width: 100%;
-    padding: 15px;
-    padding-left: 10px;
-    padding-right: 45px;
+
     min-width: 233px;
   }
 }
